@@ -1,0 +1,38 @@
+#Spring Boot应用程序启动时加载application.yml／application.properties。
+#Spring Cloud中有“引导上下文”的概念，引导上下文加载bootstrap.yml／bootstrap.properties，
+#而且具有更高的优先级，默认情况下bootstrap.yml／bootstrap.properties中的属性不能被覆盖。
+server:
+  port: 8012
+spring:
+  application:
+    name: application #就是你git仓库的配置文件的前缀
+  cloud:
+    config:
+      label: master #分支
+      profile: dev #后缀
+      uri: http://${eureka.instance.hostname}:8011/
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    allow-redirects: true
+    eureka-server-port: 8001
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+
+

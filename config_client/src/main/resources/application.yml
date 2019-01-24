@@ -1,0 +1,19 @@
+#server:
+#  port: 8012
+#spring:
+#  application:
+#    name: application
+#  cloud:
+#    config:
+#      label: master
+#      profile: dev
+#      uri: http://${eureka.instance.hostname}:8011/
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    eureka-server-port: 8001
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/

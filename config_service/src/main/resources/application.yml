@@ -5,16 +5,23 @@ spring:
     config:
       server:
         git:
+          clone-on-start: true    #启动快速识别错误的配资源
           uri: https://github.com/zhangle777/spring-cloud-config.git
-          search-paths: zhangle777/spring-cloud-config
+          search-paths: zhangle777/spring-cloud-config #扫描仓库下文件路径
+      discovery:
+        enabled: true
+    bus:
+      trace:
+        enabled: true
   application:
     name: config-service
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    eureka-server-port: 8001
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
