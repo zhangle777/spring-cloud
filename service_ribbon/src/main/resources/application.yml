@@ -1,8 +1,8 @@
 server:
-  port: 8020
+  port: 8022
 spring:
   application:
-    name: eureka-client
+    name: service-ribbon
 eureka:
   instance:
     hostname: localhost
@@ -10,4 +10,5 @@ eureka:
     eureka-server-port: 8001
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
+    fetch-registry: true
     register-with-eureka: true

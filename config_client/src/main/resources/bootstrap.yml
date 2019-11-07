@@ -10,7 +10,10 @@ spring:
     config:
       label: master #分支
       profile: dev #后缀
-      uri: http://${eureka.instance.hostname}:8011/
+#      uri: http://${eureka.instance.hostname}:8001/eureka/ 不在使用硬编码
+      discovery:
+        enabled: true  #开启自动发现注册中心的服务
+        serviceId: config-service #服务的id
     bus:
       trace:
         enabled: true
@@ -23,7 +26,7 @@ eureka:
   instance:
     hostname: localhost
   client:
-    register-with-eureka: true
+    register-with-eureka: true #将当前服务注册经服务中心
     fetch-registry: true
     allow-redirects: true
     eureka-server-port: 8001
