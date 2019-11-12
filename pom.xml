@@ -30,6 +30,7 @@
     <module>config_service</module>
     <module>service_ribbon</module>
     <module>eureka_feign</module>
+    <module>service_zuul</module>
     <module>api</module>
   </modules>
 

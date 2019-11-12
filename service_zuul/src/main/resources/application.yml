@@ -1,8 +1,8 @@
 server:
-  port: 8030
+  port: 8040
 spring:
   application:
-    name: eureka-feign
+    name: service-zuul
 eureka:
   instance:
     hostname: localhost
@@ -12,6 +12,11 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
     fetch-registry: true
     register-with-eureka: true
-feign:
-  hystrix:
-    enabled: true #开启断路器机制，在spring Cloud D版本之后需要手动开启
+zuul:
+  routes:
+    feign:
+      path: /feign/**
+      serviceId: eureka-feign
+    client:
+      path: /client/**
+      serviceId: eureka-client

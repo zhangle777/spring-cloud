@@ -10,22 +10,16 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-  <!-- 当前子模块的信息-->
   <groupId>com.zhangle</groupId>
-  <artifactId>service_ribbon</artifactId>
+  <artifactId>service_zuul</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>service_ribbon</name>
+  <name>service_zuul</name>
   <description>Demo project for Spring Boot</description>
 
-  <!--子模块独有的依赖-->
   <dependencies>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+      <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
